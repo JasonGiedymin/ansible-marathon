@@ -10,12 +10,11 @@ respawn
 respawn limit 10 5
 
 # Custom local
+# Command line options: https://github.com/mesosphere/marathon#command-line-options
 script
-  exec java \
-    {{ marathon_runtime_memory_options }} \
-    -Djava.library.path={{ marathon_runtime_lib_path }} \
-    -cp {{ marathon_runtime_marathon_jar }} mesosphere.marathon.Main \
-    --zk_hosts {{ marathon_runtime_zookeeper_hosts }} \
-    --master {{ marathon_runtime_master }}
-
+  exec {{ marathon_bin }} \
+    --ha \
+    --master {{ zookeeper_masters }} \
+    --hostname {{ marathon_hostname }}
+   >> /var/log/marathon.log 2>&1 
 end script
