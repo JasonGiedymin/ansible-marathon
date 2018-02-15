@@ -9,7 +9,7 @@
   template:
     src: marathon.pref.j2
     dest: /etc/apt/preferences.d/marathon.pref
-  when: marathon_apt_pin_priority
+  when: marathon_apt_pin_priority | default(false) | bool
 
 - name: Install Marathon package
   apt: pkg={{ marathon_apt_package }} state=present
