@@ -13,7 +13,7 @@ marathon_apt_package: "marathon={{ marathon_package_full_version }}"
 
 # RedHat: Mesosphere yum repository URL
 marathon_yum_package: "marathon-{{ marathon_version }}"
-mesosphere_yum_repo: "http://{{ marathon_repo_host }}/el/{{ os_version_major }}/noarch/RPMS/{{ mesosphere_releases[os_version_major] }}"
+mesosphere_yum_repo: "https://{{ marathon_repo_host }}/el/{{ os_version_major }}/noarch/RPMS/{{ mesosphere_releases[os_version_major] }}"
 
 marathon_hostname: "{{ inventory_hostname }}"
 marathon_port: 8080
