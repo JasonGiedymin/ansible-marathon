@@ -14,6 +14,7 @@
 - include: conf.yml
   tags:
     - config
+  notify: Restart marathon
 
 - include: haproxy.yml
   when: haproxy_script_location != ""
